@@ -13,3 +13,5 @@ appsettings.Development.json
 node_modules/
 dist/
 .angular/
+
+.env*
