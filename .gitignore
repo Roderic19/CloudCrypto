@@ -1,1 +1,10 @@
 *.md
+
+
+bin/
+obj/
+*.user
+*.suo
+.vs/
+local.settings.json
+appsettings.Development.json
