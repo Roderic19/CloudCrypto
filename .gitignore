@@ -1,5 +1,5 @@
 *.md
-
+.DS_Store
 
 bin/
 obj/
@@ -8,3 +8,8 @@ obj/
 .vs/
 local.settings.json
 appsettings.Development.json
+
+
+node_modules/
+dist/
+.angular/
