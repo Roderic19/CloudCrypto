@@ -38,10 +38,8 @@ jobs:
         working-directory: frontend/cloud-crypto
 
       - name: Test
-        run: npm run test -- --watch=false --browsers=ChromeHeadless
+        run: npm run test -- --watch=false
         working-directory: frontend/cloud-crypto
-        env:
-          CHROME_BIN: /usr/bin/google-chrome
 
       - name: Build
         run: npm run build -- --configuration production
