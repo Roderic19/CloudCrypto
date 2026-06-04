@@ -1,0 +1,54 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    environment:
+      ACCEPT_EULA: "1"
+      MSSQL_SA_PASSWORD: ${SQL_PASSWORD}
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'echo > /dev/tcp/localhost/1433'"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+  
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite
+    ports:
+      - "10001:10001"
+    volumes:
+      - azurite_data:/data
+    command: azurite-queue --queueHost 0.0.0.0 --loose
+
+  functions:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    ports:
+      - "7071:80"
+    env_file:
+      - .env.development
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+      azurite:
+        condition: service_started
+    profiles:
+      - full
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    ports:
+      - "4200:80"
+    profiles:
+      - full
+
+volumes:
+  sqlserver_data:
+  azurite_data:
+

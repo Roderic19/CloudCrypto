@@ -1,1 +1,17 @@
 *.md
+.DS_Store
+
+bin/
+obj/
+*.user
+*.suo
+.vs/
+local.settings.json
+appsettings.Development.json
+
+node_modules/
+dist/
+.angular/
+
+.env*
+.sonarcloud.properties

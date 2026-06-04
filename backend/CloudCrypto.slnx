@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CloudCrypto.Core/CloudCrypto.Core.csproj" />
+    <Project Path="src/CloudCrypto.Infrastructure/CloudCrypto.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/CloudCrypto.Functions/">
+    <Project Path="src/CloudCrypto.Functions/CloudCrypto_Functions.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CloudCrypto.IntegrationTests/CloudCrypto.IntegrationTests.csproj" />
+    <Project Path="tests/CloudCrypto.UnitTests/CloudCrypto.UnitTests.csproj" />
+  </Folder>
+</Solution>
