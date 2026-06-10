@@ -70,4 +70,3 @@ jobs:
           action: upload
           app_location: frontend/cloud-crypto
           output_location: dist/cloud-crypto/browser
-          skip_app_build: true
