@@ -80,7 +80,7 @@ jobs:
 
       - name: Login to Azure
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: azure/login@v2
+        uses: azure/login@1384c340ab2dda50fed2bee3041d1d87018aa5e8
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
