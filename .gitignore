@@ -12,6 +12,8 @@ appsettings.Development.json
 node_modules/
 dist/
 .angular/
+environment.ts
+environment.development.ts
 
 .env*
 .sonarcloud.properties
