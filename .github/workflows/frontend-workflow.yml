@@ -33,6 +33,22 @@ jobs:
         run: npm ci
         working-directory: frontend/cloud-crypto
 
+      - name: Generate environment files
+          run: |
+            mkdir -p frontend/cloud-crypto/src/environments
+            cat > frontend/cloud-crypto/src/environments/environment.ts << 'EOF'
+            export const environment = {
+              production: true,
+              apiUrl: '${{ secrets.AZURE_FUNCTIONS_URL }}'
+            };
+            EOF
+            cat > frontend/cloud-crypto/src/environments/environment.development.ts << 'EOF'
+            export const environment = {
+              production: false,
+              apiUrl: 'http://localhost:7071'
+            };
+            EOF
+
       - name: Analyze
         run: npm run lint
         working-directory: frontend/cloud-crypto
