@@ -76,7 +76,7 @@ jobs:
       
       - name: Publish
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: dotnet publish backend/src/CloudCrypto.Functions/CloudCrypto.Functions.csproj -c Release -o ./publish
+        run: dotnet publish backend/src/CloudCrypto.Functions/CloudCrypto_Functions.csproj -c Release -o ./publish
 
       - name: Deploy to Azure Functions
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
